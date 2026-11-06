@@ -18,7 +18,7 @@ My work centers on finding memory-safety, type-confusion, and deserialization de
 - **[The Unchecked Atlas](https://unchecked.sh)** - Interactive vulnerability research atlas mapping parser boundaries, container deserialization hazards, and native runtime memory-safety invariants across modern systems and ML stacks.
 
 ### Adversarial Tradecraft, Emulation & Infrastructure
-- **[Scorch](https://github.com/professor-moody/Scorch)** (`47★`) & **[ludus_scorch](https://github.com/professor-moody/ludus_scorch)** (`19★`) - Gamified adversary emulation and detection validation range (`Scorch`) and its automated [Ludus](https://docs.ludus.cloud) deployment role for repeatable red/blue cyber exercises.
+- **[Scorch](https://github.com/professor-moody/Scorch)** (`47★`) & **[ludus_scorch](https://github.com/professor-moody/ludus_scorch)** (`19★`) - Simulated MS SCORCH Env (`Scorch`) and its automated [Ludus](https://docs.ludus.cloud) deployment role for repeatable red/blue cyber exercises.
 - **[aipostex](https://github.com/professor-moody/aipostex)** (`6★`) & **[aipostex-lab](https://github.com/professor-moody/aipostex-lab)** - AI/ML post-exploitation tradecraft framework and companion lab environment for researching security boundaries across deployed inference services and model pipelines.
 - **[ludus_litterbox_role](https://github.com/professor-moody/ludus_litterbox_role)** (`20★`) - Ansible role for deploying the LitterBox malware analysis and payload testing sandbox into Ludus virtual environments.
 - **[Hemlock](https://github.com/professor-moody/Hemlock)** - Modular command-and-control (C2) framework built to study extensible implant communication protocols and operator workflows.
