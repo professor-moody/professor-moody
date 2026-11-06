@@ -1,6 +1,6 @@
 # Nathan (`m00dy` / `@professor-moody`)
 
-I am Nathan (`m00dy`), a security researcher and systems engineer focused on **AI/ML runtime security**, **binary format and parser verification**, **weight-space analysis**, and **adversarial tradecraft simulation**.
+I am Nathan (`m00dy`), a security researcher and penetration tester focused on **AI/ML runtime security**, **binary format and parser verification**, **weight-space analysis**, and **adversarial tradecraft simulation**.
 
 My work centers on finding memory-safety, type-confusion, and deserialization defects across the native C, C++, and Rust software stack that loads and executes machine learning models and binary containers, alongside building open-source tooling for red-team infrastructure, post-exploitation research, and defensive telemetry validation.
 
