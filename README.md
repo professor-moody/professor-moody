@@ -28,9 +28,10 @@ My work centers on finding memory-safety, type-confusion, and deserialization de
 
 ## Accepted Upstream Contributions & Published Advisories
 
-### Merged Upstream Pull Requests (40 Merged PRs + 3 Maintainer-Merged Fixes Across 19 Repositories)
+### Merged Upstream Pull Requests (42 Merged PRs + 3 Maintainer-Merged Fixes Across 20 Repositories)
 - **ML Runtimes, Compilers & Tokenizers:**
   - [`tensorflow/tensorflow`](https://github.com/tensorflow/tensorflow/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (16 merged PRs across `core/framework`, `core/kernels`, `core/grappler`, `core/util/tensor_bundle`, and `core/lib/jpeg`/`webp`: `#129806`, `#129690`, `#129689`, `#129688`, `#129671`, `#129663`, `#129658`, `#129657`, `#129654`, `#129627`, `#129626`, `#129620`, `#129613`, `#129516`, `#129508`, `#129495`)
+  - [`openxla/xla`](https://github.com/openxla/xla/pulls?q=is%3Apr+51992+OR+52416) (2 merged PRs via Google Copybara across `xla/tsl/lib/io`: `#51992`/`#52109`, `#52416`/`#52459`)
   - [`microsoft/onnxruntime`](https://github.com/microsoft/onnxruntime/pull/33517) (`#33517`, plus maintainer-merged fix `#28751`)
   - [`onnx/onnx`](https://github.com/onnx/onnx/pull/8037) (`#8037`)
   - [`iree-org/iree`](https://github.com/iree-org/iree/pull/25088) (`#25088`)
