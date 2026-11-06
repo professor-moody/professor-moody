@@ -28,13 +28,16 @@ My work centers on finding memory-safety, type-confusion, and deserialization de
 
 ## Accepted Upstream Contributions & Published Advisories
 
-### Merged Upstream Pull Requests (36 Merged Across 16 Repositories)
+### Merged Upstream Pull Requests (40 Merged PRs + 3 Maintainer-Merged Fixes Across 19 Repositories)
 - **ML Runtimes, Compilers & Tokenizers:**
-  - [`tensorflow/tensorflow`](https://github.com/tensorflow/tensorflow/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (15 merged PRs across `core/framework`, `core/kernels`, `core/grappler`, `core/util/tensor_bundle`, and `core/lib/jpeg`/`webp`: `#129806`, `#129690`, `#129689`, `#129688`, `#129671`, `#129663`, `#129658`, `#129657`, `#129627`, `#129626`, `#129620`, `#129613`, `#129516`, `#129508`, `#129495`)
+  - [`tensorflow/tensorflow`](https://github.com/tensorflow/tensorflow/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (16 merged PRs across `core/framework`, `core/kernels`, `core/grappler`, `core/util/tensor_bundle`, and `core/lib/jpeg`/`webp`: `#129806`, `#129690`, `#129689`, `#129688`, `#129671`, `#129663`, `#129658`, `#129657`, `#129654`, `#129627`, `#129626`, `#129620`, `#129613`, `#129516`, `#129508`, `#129495`)
   - [`microsoft/onnxruntime`](https://github.com/microsoft/onnxruntime/pull/33517) (`#33517`, plus maintainer-merged fix `#28751`)
+  - [`onnx/onnx`](https://github.com/onnx/onnx/pull/8037) (`#8037`)
   - [`iree-org/iree`](https://github.com/iree-org/iree/pull/25088) (`#25088`)
   - [`google/sentencepiece`](https://github.com/google/sentencepiece/pull/1368) (`#1368`)
-  - [`EricLBuehler/mistral.rs`](https://github.com/EricLBuehler/mistral.rs/pull/2495) (`#2495`)
+  - [`EricLBuehler/mistral.rs`](https://github.com/EricLBuehler/mistral.rs/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (`#2495`, `#2282`)
+  - [`ollama/ollama`](https://github.com/ollama/ollama/pull/17062) (`#17062`)
+  - [`ModelCloud/GPTQModel`](https://github.com/ModelCloud/GPTQModel/pull/2950) (`#2950`)
   - [`leejet/stable-diffusion.cpp`](https://github.com/leejet/stable-diffusion.cpp/pull/1750) (`#1750`)
   - [`sonos/tract`](https://github.com/sonos/tract/pull/2425) (`#2425`)
   - [`turboderp-org/exllamav3`](https://github.com/turboderp-org/exllamav3/pull/310) (`#310`)
@@ -44,7 +47,7 @@ My work centers on finding memory-safety, type-confusion, and deserialization de
   - [`unum-cloud/USearch`](https://github.com/unum-cloud/USearch/pull/776) (`#776`)
 - **Computer Vision, Image Codecs, Text Shaping & OCR:**
   - [`opencv/opencv`](https://github.com/opencv/opencv/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (`#30577`, `#30262`, `#30261`) & [`opencv/opencv_extra`](https://github.com/opencv/opencv_extra/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (`#1431`, `#1430`)
-  - [`harfbuzz/harfbuzz`](https://github.com/harfbuzz/harfbuzz/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (OpenType text shaping: `#6563`, `#6557`, `#6556`)
+  - [`harfbuzz/harfbuzz`](https://github.com/harfbuzz/harfbuzz/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (OpenType text shaping: `#6563`, `#6557`, `#6556`, plus maintainer-merged fixes `#6546` and `#6542` with author credit)
   - [`tesseract-ocr/tesseract`](https://github.com/tesseract-ocr/tesseract/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (OCR: `#4671`, `#4670`)
   - [`libjxl/libjxl`](https://github.com/libjxl/libjxl/pull/5075) (JPEG XL codec: `#5075`)
 
