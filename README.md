@@ -2,9 +2,10 @@
 
 I am Nathan (`m00dy`), a security researcher and penetration tester focused on **AI/ML runtime security**, **binary format and parser verification**, **weight-space analysis**, and **adversarial tradecraft simulation**.
 
-My work centers on finding memory-safety, type-confusion, and deserialization defects across the native C, C++, and Rust software stack that loads and executes machine learning models and binary containers, alongside building open-source tooling for red-team infrastructure, post-exploitation research, and defensive telemetry validation.
+My work centers on finding memory-safety, type-confusion, integer-overflow, and deserialization defects across the native C, C++, and Rust software stack that loads and executes machine learning models and binary containers, alongside building open-source tooling for red-team infrastructure, post-exploitation research, and defensive telemetry validation.
 
 - **Notebook & Writing:** [m00dy.sh](https://m00dy.sh)
+- **Public Advisories & Patch Map:** [m00dy.sh/advisories](https://m00dy.sh/advisories)
 - **The Unchecked Atlas:** [unchecked.sh](https://unchecked.sh)
 - **GitHub:** [github.com/professor-moody](https://github.com/professor-moody)
 
@@ -13,53 +14,60 @@ My work centers on finding memory-safety, type-confusion, and deserialization de
 ## Research & Open-Source Projects
 
 ### AI/ML Security & Parser Verification
-- **[Secant](https://github.com/professor-moody/secant)** ([Docs](https://professor-moody.github.io/secant/)) - Rust and Python toolkit for **Weight-Space Programming (WSP)** covering zero-evaluation spectral weight auditing (`secant inspect` / `read`), multi-subspace Gram-Schmidt composition with closed-form Target-Shift Calibration (`secant compose`), zero-copy `mmap` and `Q8_0` block-aligned surgery (`secant patch` / `quant patch`), and subspace-locked LoRA micro-training (`ProjectThenHealLinear`).
-- **[Crucible](https://github.com/professor-moody/crucible)** ([Docs](https://professor-moody.github.io/crucible/)) - Structure-aware grammar and mutation framework for ML model formats (`GGUF`, `ONNX`, `SafeTensors`, `TFLite`, `FlatBuffers`, `Protobuf`) that pairs schema-driven mutators with sanitizer-instrumented harnesses and stack-hash crash deduplication.
+- **[Secant](https://github.com/professor-moody/secant)** ([Docs](https://professor-moody.github.io/secant/)) - Rust and Python toolkit for **Weight-Space Programming (WSP)** covering zero-evaluation spectral weight auditing (`secant inspect` / `read`), multi-subspace Gram-Schmidt composition with closed-form Target-Shift Calibration (`secant compose`), zero-copy `mmap` plus `Q8_0` and `Q4_K` block-aligned quantized surgery (`secant patch` / `quant patch`), preload spectral sanitization, and subspace-locked LoRA micro-training (`ProjectThenHealLinear`).
+- **[Crucible](https://github.com/professor-moody/crucible)** ([Docs](https://professor-moody.github.io/crucible/)) - Structure-aware grammar, static contract synthesis, and mutation framework for ML model and binary container formats (`GGUF`, `ONNX`, `SafeTensors`, `TFLite`, `Core ML milblob/mlpackage`, `Protobuf/upb`, `FlatBuffers/FlexBuffers`, `ISOBMFF`, `PNG`, `RESP`) pairing field-coupled Rust FFI mutators with sanitizer-instrumented harnesses, differential oracles, and stack-hash crash deduplication.
 - **[The Unchecked Atlas](https://unchecked.sh)** - Interactive vulnerability research atlas mapping parser boundaries, container deserialization hazards, and native runtime memory-safety invariants across modern systems and ML stacks.
 
 ### Adversarial Tradecraft, Emulation & Infrastructure
-- **[Scorch](https://github.com/professor-moody/Scorch)** (`47★`) & **[ludus_scorch](https://github.com/professor-moody/ludus_scorch)** (`19★`) - Simulated MS SCORCH Env (`Scorch`) and its automated [Ludus](https://docs.ludus.cloud) deployment role for repeatable red/blue cyber exercises.
-- **[aipostex](https://github.com/professor-moody/aipostex)** (`6★`) & **[aipostex-lab](https://github.com/professor-moody/aipostex-lab)** - AI/ML post-exploitation tradecraft framework and companion lab environment for researching security boundaries across deployed inference services and model pipelines.
-- **[ludus_litterbox_role](https://github.com/professor-moody/ludus_litterbox_role)** (`20★`) - Ansible role for deploying the LitterBox malware analysis and payload testing sandbox into Ludus virtual environments.
-- **[Hemlock](https://github.com/professor-moody/Hemlock)** - Modular command-and-control (C2) framework built to study extensible implant communication protocols and operator workflows.
-- **[halo-forge](https://github.com/professor-moody/halo-forge)** (`9★`) - Benchmark and reinforcement-learning training framework (`Halo-Forge`) for AMD Strix Halo systems.
+- **[scorch](https://github.com/professor-moody/scorch)** (`47★`) & **[ludus_scorch](https://github.com/professor-moody/ludus_scorch)** (`19★`) - Cross-platform offensive security toolkit for Microsoft System Center Orchestrator (SCORCH) covering security assessment, API enumeration, credential extraction, and runbook execution, paired with its [Ludus](https://ludus.cloud) Ansible collection for automated lab deployment.
+- **[ludus_litterbox_role](https://github.com/professor-moody/ludus_litterbox_role)** (`21★`) - Ludus Ansible role for deploying the LitterBox static/dynamic malware analysis and payload testing sandbox on Windows lab VMs.
+- **[halo-forge](https://github.com/professor-moody/halo-forge)** (`10★`) - Cross-vendor local finetuning workstation supporting SFT, CPT, DPO, GRPO, and RAFT with verifier-grounded rewards and runtime-qualified accelerator paths.
+- **[aipostex](https://github.com/professor-moody/aipostex)** (`6★`), **[aipostex-templates](https://github.com/professor-moody/aipostex-templates)** & **[aipostex-lab](https://github.com/professor-moody/aipostex-lab)** - Single-binary Go AI infrastructure offensive security framework (`131` templates, `20` exploit modules) targeting LLM gateways, model registries, inference servers, vector databases, Jupyter notebooks, and MCP tool servers, alongside its reproducible test lab.
+- **[hemlock](https://github.com/professor-moody/hemlock)** - Portable Go RAG pipeline poisoning document generator for authorized security assessments (operationalizing PoisonedRAG and PhantomText across 11 document formats, 63 hiding techniques, 75 payload templates, and 4 framework validators for LangChain, LlamaIndex, Unstructured.io, and Haystack).
 
 ---
 
 ## Accepted Upstream Contributions & Published Advisories
 
-### Merged Upstream Pull Requests (42 Merged PRs + 3 Maintainer-Merged Fixes Across 20 Repositories)
-- **ML Runtimes, Compilers & Tokenizers:**
-  - [`tensorflow/tensorflow`](https://github.com/tensorflow/tensorflow/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (16 merged PRs across `core/framework`, `core/kernels`, `core/grappler`, `core/util/tensor_bundle`, and `core/lib/jpeg`/`webp`: `#129806`, `#129690`, `#129689`, `#129688`, `#129671`, `#129663`, `#129658`, `#129657`, `#129654`, `#129627`, `#129626`, `#129620`, `#129613`, `#129516`, `#129508`, `#129495`)
-  - [`openxla/xla`](https://github.com/openxla/xla/pulls?q=is%3Apr+51992+OR+52416) (2 merged PRs via Google Copybara across `xla/tsl/lib/io`: `#51992`/`#52109`, `#52416`/`#52459`)
+### Merged Upstream Patches (56 Authored Merged PRs + 12 Maintainer-Merged Fixes Across 25 Repositories)
+- **ML Runtimes, Compilers, Serialization & Tokenizers:**
+  - [`tensorflow/tensorflow`](https://github.com/tensorflow/tensorflow/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (19 merged PRs across `core/framework`, `core/kernels`, `core/grappler`, `core/saved_model`, `core/util/tensor_bundle`, and `core/lib/jpeg`/`webp`: `#130078`, `#129866`, `#129806`, `#129804`, `#129690`, `#129689`, `#129688`, `#129671`, `#129663`, `#129658`, `#129657`, `#129654`, `#129627`, `#129626`, `#129620`, `#129613`, `#129516`, `#129508`, `#129495`)
+  - [`protocolbuffers/protobuf`](https://github.com/protocolbuffers/protobuf/commits/main?author=professor-moody) (9 merged `upb` C runtime PRs via Copybara across arena sizing, MiniTable layout counters, extension arrays, and ProtoJSON codecs: `#31236`, `#31128`, `#31104`, `#31097`, `#31010`, `#30959`, `#30958`, `#30787`, `#30785`)
+  - [`openxla/xla`](https://github.com/openxla/xla/commits/main?author=professor-moody) (5 merged PRs via Copybara across `xla/service` and `xla/tsl/lib/io`: `#52787`, `#52698`, `#52513`, `#52416`, `#51992`)
   - [`microsoft/onnxruntime`](https://github.com/microsoft/onnxruntime/pull/33517) (`#33517`, plus maintainer-merged fix `#28751`)
-  - [`onnx/onnx`](https://github.com/onnx/onnx/pull/8037) (`#8037`)
+  - [`onnx/onnx`](https://github.com/onnx/onnx/pull/8037) (maintainer-merged fix `#8037` for `CVE-2026-14647`)
   - [`iree-org/iree`](https://github.com/iree-org/iree/pull/25088) (`#25088`)
   - [`google/sentencepiece`](https://github.com/google/sentencepiece/pull/1368) (`#1368`)
-  - [`EricLBuehler/mistral.rs`](https://github.com/EricLBuehler/mistral.rs/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (`#2495`, `#2282`)
-  - [`ollama/ollama`](https://github.com/ollama/ollama/pull/17062) (`#17062`)
-  - [`ModelCloud/GPTQModel`](https://github.com/ModelCloud/GPTQModel/pull/2950) (`#2950`)
-  - [`leejet/stable-diffusion.cpp`](https://github.com/leejet/stable-diffusion.cpp/pull/1750) (`#1750`)
-  - [`sonos/tract`](https://github.com/sonos/tract/pull/2425) (`#2425`)
+  - [`EricLBuehler/mistral.rs`](https://github.com/EricLBuehler/mistral.rs/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (`#2495`, plus maintainer-merged fix `#2282` for `CVE-2026-75090`)
+  - [`leejet/stable-diffusion.cpp`](https://github.com/leejet/stable-diffusion.cpp/pull/1750) (`#1750`, plus maintainer-merged fixes `#1832` for `CVE-2026-115571` and `#1404` for `GHSA-fc82-rcm2-p4vr`)
+  - [`sonos/tract`](https://github.com/sonos/tract/pull/2425) (`#2425`, plus maintainer-merged fix `#2413` for `CVE-2026-75093`)
   - [`turboderp-org/exllamav3`](https://github.com/turboderp-org/exllamav3/pull/310) (`#310`)
   - [`mozilla-ai/llamafile`](https://github.com/mozilla-ai/llamafile/pull/1039) (`#1039`)
+  - [`ollama/ollama`](https://github.com/ollama/ollama/pull/17062) (maintainer-merged fix `#17062` for `CVE-2026-86289`)
+  - [`ModelCloud/GPTQModel`](https://github.com/ModelCloud/GPTQModel/pull/2950) (maintainer-merged fix `#2950` for `CVE-2026-86288`)
+  - [`ml-explore/mlx`](https://github.com/ml-explore/mlx/pull/4179) (maintainer-merged GGUF bounds fix `#4179`)
 - **Vector Indexes & Columnar Storage:**
+  - [`facebookresearch/faiss`](https://github.com/facebookresearch/faiss/pull/5764) (`#5764`)
   - [`lance-format/lance`](https://github.com/lance-format/lance/pull/8138) (`#8138`)
   - [`unum-cloud/USearch`](https://github.com/unum-cloud/USearch/pull/776) (`#776`)
-- **Computer Vision, Image Codecs, Text Shaping & OCR:**
+  - [`spotify/voyager`](https://github.com/spotify/voyager/commit/2e68582c8bd6e22cd14fd3a25f11b720b0fa166b) (maintainer-merged fix `2e68582` for `CVE-2026-124959`)
+- **Computer Vision, Image/3D Codecs, Text Shaping & OCR:**
   - [`opencv/opencv`](https://github.com/opencv/opencv/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (`#30577`, `#30262`, `#30261`) & [`opencv/opencv_extra`](https://github.com/opencv/opencv_extra/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (`#1431`, `#1430`)
-  - [`harfbuzz/harfbuzz`](https://github.com/harfbuzz/harfbuzz/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (OpenType text shaping: `#6563`, `#6557`, `#6556`, plus maintainer-merged fixes `#6546` and `#6542` with author credit)
+  - [`harfbuzz/harfbuzz`](https://github.com/harfbuzz/harfbuzz/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (OpenType text shaping: `#6563`, `#6557`, `#6556`, plus maintainer-merged fixes `#6546` and `#6542`)
   - [`tesseract-ocr/tesseract`](https://github.com/tesseract-ocr/tesseract/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (OCR: `#4671`, `#4670`)
+  - [`python-pillow/Pillow`](https://github.com/python-pillow/Pillow/pull/10500) (`#10500`)
+  - [`google/filament`](https://github.com/google/filament/pull/10644) (`#10644`)
   - [`libjxl/libjxl`](https://github.com/libjxl/libjxl/pull/5075) (JPEG XL codec: `#5075`)
 
-### Selected Public CVEs & Security Advisories
-- **[CVE-2025-66455](https://github.com/InternLM/lmdeploy/security/advisories/GHSA-2vh9-42vm-xmv2)** (`InternLM/lmdeploy`) - Untrusted deserialization in model loading (`GHSA-2vh9-42vm-xmv2`).
-- **[CVE-2026-14647](https://www.cve.org/CVERecord?id=CVE-2026-14647)** (`onnx/onnx`) - Heap out-of-bounds read in ONNX shape inference ([`#8037`](https://github.com/onnx/onnx/pull/8037)).
-- **[CVE-2026-70659](https://github.com/leejet/stable-diffusion.cpp/security/advisories/GHSA-6q7q-2v9c-x8m7)** (`leejet/stable-diffusion.cpp`) - Heap out-of-bounds write in the `imatrix` loader (`GHSA-6q7q-2v9c-x8m7`, fixed in [`#1750`](https://github.com/leejet/stable-diffusion.cpp/pull/1750)).
-- **[CVE-2026-78147](https://www.cve.org/CVERecord?id=CVE-2026-78147)**, **[CVE-2026-78148](https://www.cve.org/CVERecord?id=CVE-2026-78148)**, **[CVE-2026-86317](https://www.cve.org/CVERecord?id=CVE-2026-86317)**, **[CVE-2026-17500](https://www.cve.org/CVERecord?id=CVE-2026-17500)**, **[CVE-2026-17501](https://www.cve.org/CVERecord?id=CVE-2026-17501)** & **[CVE-2026-18581](https://www.cve.org/CVERecord?id=CVE-2026-18581)** (`ggml-org/llama.cpp`) - `ggml-rpc` and GGUF parser/loader vulnerabilities.
-- **[CVE-2026-10298](https://www.cve.org/CVERecord?id=CVE-2026-10298)**, **[CVE-2026-17512](https://www.cve.org/CVERecord?id=CVE-2026-17512)** & **[CVE-2026-17513](https://www.cve.org/CVERecord?id=CVE-2026-17513)** (`ggml-org/whisper.cpp`) - Heap out-of-bounds read, null dereference, and reachable assertions in model/audio parsing.
-- **[CVE-2026-84286 / CERT/CC VU#369611](https://kb.cert.org/vuls/id/369611)** (`turboderp-org/exllamav3`) - Out-of-bounds function-pointer dispatch in reconstruct kernel (`#310`).
-- **[CVE-2026-86288](https://www.cve.org/CVERecord?id=CVE-2026-86288)** (`ModelCloud/GPTQModel`) - Device out-of-bounds read from unchecked `g_idx` in Triton dequantization ([`#2950`](https://github.com/ModelCloud/GPTQModel/pull/2950)).
+### Public CVEs & CERT/CC Vulnerability Notes (20 Public CVEs + 3 CERT/CC `VU#` Advisories)
+- **[CVE-2026-124959 / CERT/CC VU#681158](https://www.cve.org/CVERecord?id=CVE-2026-124959)** (`nmslib/hnswlib` & `spotify/voyager`) - Heap out-of-bounds write during HNSW index deserialization when header capacity invariants are violated ([write-up](https://m00dy.sh/notes/when-an-hnsw-index-lies-about-its-capacity)).
+- **[CERT/CC VU#162455](https://m00dy.sh/notes/when-a-shared-rpc-server-hands-back-uncleared-heap)** (`ggml-org/llama.cpp`) - Cross-client uninitialized heap memory disclosure via `GET_TENSOR` in `ggml-rpc` (`#20832`).
+- **[CVE-2026-115571](https://github.com/leejet/stable-diffusion.cpp/security/advisories/GHSA-cfhc-rw9j-rp26)** & **[CVE-2026-70659](https://github.com/leejet/stable-diffusion.cpp/security/advisories/GHSA-6q7q-2v9c-x8m7)** (`leejet/stable-diffusion.cpp`) - Signed-to-unsigned tensor offset wrap (`GHSA-cfhc-rw9j-rp26`, [`#1832`](https://github.com/leejet/stable-diffusion.cpp/pull/1832)) and `imatrix` loader heap out-of-bounds write (`GHSA-6q7q-2v9c-x8m7`, [`#1750`](https://github.com/leejet/stable-diffusion.cpp/pull/1750)).
+- **[CVE-2026-84286 / CERT/CC VU#369611](https://kb.cert.org/vuls/id/369611)** (`turboderp-org/exllamav3`) & **[CVE-2026-116502](https://github.com/turboderp-org/exllamav2/issues/817)** (`turboderp-org/exllamav2`) - Out-of-bounds CUDA function-pointer dispatch ([`#310`](https://github.com/turboderp-org/exllamav3/pull/310)) and quantized `g_idx` heap out-of-bounds write.
+- **[CVE-2025-66455](https://github.com/InternLM/lmdeploy/security/advisories/GHSA-2vh9-42vm-xmv2)** (`InternLM/lmdeploy`) - Pre-auth untrusted pickle deserialization in Distributed Serving (`GHSA-2vh9-42vm-xmv2`).
+- **[CVE-2026-14647](https://www.cve.org/CVERecord?id=CVE-2026-14647)** (`onnx/onnx`) - Heap out-of-bounds read in ONNX convolution shape inference ([`#8037`](https://github.com/onnx/onnx/pull/8037)).
+- **[CVE-2026-86288](https://www.cve.org/CVERecord?id=CVE-2026-86288)** (`ModelCloud/GPTQModel`) - GPU out-of-bounds read from unchecked `g_idx` in Triton dequantization ([`#2950`](https://github.com/ModelCloud/GPTQModel/pull/2950)).
 - **[CVE-2026-86289](https://www.cve.org/CVERecord?id=CVE-2026-86289)** (`ollama/ollama`) - Integer-underflow panic in GGUF v1 string parsing ([`#17062`](https://github.com/ollama/ollama/pull/17062)).
-- **[CVE-2026-75090](https://www.cve.org/CVERecord?id=CVE-2026-75090)** (`EricLBuehler/mistral.rs`) & **[CVE-2026-75093](https://www.cve.org/CVERecord?id=CVE-2026-75093)** (`sonos/tract`) - GGUF token-ID out-of-bounds panic ([`#2282`](https://github.com/EricLBuehler/mistral.rs/pull/2282)) and NNEF parser crash.
-- **[CERT/CC VU#681158](https://m00dy.sh/notes/when-an-hnsw-index-lies-about-its-capacity)** (`nmslib/hnswlib` & `spotify/voyager`) - Heap out-of-bounds write during HNSW index deserialization when header capacity relationships are violated.
+- **[CVE-2026-75090](https://www.cve.org/CVERecord?id=CVE-2026-75090)** (`EricLBuehler/mistral.rs`) & **[CVE-2026-75093](https://www.cve.org/CVERecord?id=CVE-2026-75093)** (`sonos/tract`) - GGUF token-ID vocabulary out-of-bounds panic ([`#2282`](https://github.com/EricLBuehler/mistral.rs/pull/2282)) and raw tensor extent mismatch panic ([`#2413`](https://github.com/sonos/tract/pull/2413)).
+- **[CVE-2026-78147](https://www.cve.org/CVERecord?id=CVE-2026-78147)**, **[CVE-2026-78148](https://www.cve.org/CVERecord?id=CVE-2026-78148)**, **[CVE-2026-86317](https://www.cve.org/CVERecord?id=CVE-2026-86317)**, **[CVE-2026-17500](https://www.cve.org/CVERecord?id=CVE-2026-17500)**, **[CVE-2026-17501](https://www.cve.org/CVERecord?id=CVE-2026-17501)** & **[CVE-2026-18581](https://www.cve.org/CVERecord?id=CVE-2026-18581)** (`ggml-org/llama.cpp`) - `ggml-rpc`, JSON-schema grammar, and template parser vulnerabilities.
+- **[CVE-2026-10298](https://www.cve.org/CVERecord?id=CVE-2026-10298)**, **[CVE-2026-17512](https://www.cve.org/CVERecord?id=CVE-2026-17512)** & **[CVE-2026-17513](https://www.cve.org/CVERecord?id=CVE-2026-17513)** (`ggml-org/whisper.cpp`) - Heap out-of-bounds read, null dereference, and reachable assertions in model/audio parsing.
