@@ -29,7 +29,7 @@ My work centers on finding memory-safety, type-confusion, integer-overflow, and 
 
 ## Accepted Upstream Contributions & Published Advisories
 
-### Merged Upstream Patches (56 Authored Merged PRs + 12 Maintainer-Merged Fixes Across 25 Repositories)
+### Merged Upstream Patches (57 Authored Merged PRs + 14 Maintainer-Merged Fixes Across 26 Repositories)
 - **ML Runtimes, Compilers, Serialization & Tokenizers:**
   - [`tensorflow/tensorflow`](https://github.com/tensorflow/tensorflow/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (19 merged PRs across `core/framework`, `core/kernels`, `core/grappler`, `core/saved_model`, `core/util/tensor_bundle`, and `core/lib/jpeg`/`webp`: `#130078`, `#129866`, `#129806`, `#129804`, `#129690`, `#129689`, `#129688`, `#129671`, `#129663`, `#129658`, `#129657`, `#129654`, `#129627`, `#129626`, `#129620`, `#129613`, `#129516`, `#129508`, `#129495`)
   - [`protocolbuffers/protobuf`](https://github.com/protocolbuffers/protobuf/commits/main?author=professor-moody) (9 merged `upb` C runtime PRs via Copybara across arena sizing, MiniTable layout counters, extension arrays, and ProtoJSON codecs: `#31236`, `#31128`, `#31104`, `#31097`, `#31010`, `#30959`, `#30958`, `#30787`, `#30785`)
@@ -40,9 +40,9 @@ My work centers on finding memory-safety, type-confusion, integer-overflow, and 
   - [`google/sentencepiece`](https://github.com/google/sentencepiece/pull/1368) (`#1368`)
   - [`EricLBuehler/mistral.rs`](https://github.com/EricLBuehler/mistral.rs/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (`#2495`, plus maintainer-merged fix `#2282` for `CVE-2026-75090`)
   - [`leejet/stable-diffusion.cpp`](https://github.com/leejet/stable-diffusion.cpp/pull/1750) (`#1750`, plus maintainer-merged fixes `#1832` for `CVE-2026-115571` and `#1404` for `GHSA-fc82-rcm2-p4vr`)
-  - [`sonos/tract`](https://github.com/sonos/tract/pull/2425) (`#2425`, plus maintainer-merged fix `#2413` for `CVE-2026-75093`)
+  - [`sonos/tract`](https://github.com/sonos/tract/pull/2425) (`#2425`, plus maintainer-merged fixes `#2413` for `CVE-2026-75093` and `#2411` for `CVE-2026-133616`)
   - [`turboderp-org/exllamav3`](https://github.com/turboderp-org/exllamav3/pull/310) (`#310`)
-  - [`mozilla-ai/llamafile`](https://github.com/mozilla-ai/llamafile/pull/1039) (`#1039`)
+  - [`mozilla-ai/llamafile`](https://github.com/mozilla-ai/llamafile/pull/1039) (`#1039`, plus maintainer-merged fix `#1044` for `CVE-2026-133498`)
   - [`ollama/ollama`](https://github.com/ollama/ollama/pull/17062) (maintainer-merged fix `#17062` for `CVE-2026-86289`)
   - [`ModelCloud/GPTQModel`](https://github.com/ModelCloud/GPTQModel/pull/2950) (maintainer-merged fix `#2950` for `CVE-2026-86288`)
   - [`ml-explore/mlx`](https://github.com/ml-explore/mlx/pull/4179) (maintainer-merged GGUF bounds fix `#4179`)
@@ -55,19 +55,24 @@ My work centers on finding memory-safety, type-confusion, integer-overflow, and 
   - [`opencv/opencv`](https://github.com/opencv/opencv/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (`#30577`, `#30262`, `#30261`) & [`opencv/opencv_extra`](https://github.com/opencv/opencv_extra/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (`#1431`, `#1430`)
   - [`harfbuzz/harfbuzz`](https://github.com/harfbuzz/harfbuzz/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (OpenType text shaping: `#6563`, `#6557`, `#6556`, plus maintainer-merged fixes `#6546` and `#6542`)
   - [`tesseract-ocr/tesseract`](https://github.com/tesseract-ocr/tesseract/pulls?q=is%3Apr+author%3Aprofessor-moody+is%3Amerged) (OCR: `#4671`, `#4670`)
+  - [`pnggroup/libpng`](https://github.com/pnggroup/libpng/pull/973) (APNG sequential reader: `#973`)
   - [`python-pillow/Pillow`](https://github.com/python-pillow/Pillow/pull/10500) (`#10500`)
   - [`google/filament`](https://github.com/google/filament/pull/10644) (`#10644`)
   - [`libjxl/libjxl`](https://github.com/libjxl/libjxl/pull/5075) (JPEG XL codec: `#5075`)
 
-### Public CVEs & CERT/CC Vulnerability Notes (20 Public CVEs + 3 CERT/CC `VU#` Advisories)
+### Public CVEs & CERT/CC Vulnerability Notes (26 Public CVEs + 3 CERT/CC `VU#` Advisories)
 - **[CVE-2026-124959 / CERT/CC VU#681158](https://www.cve.org/CVERecord?id=CVE-2026-124959)** (`nmslib/hnswlib` & `spotify/voyager`) - Heap out-of-bounds write during HNSW index deserialization when header capacity invariants are violated ([write-up](https://m00dy.sh/notes/when-an-hnsw-index-lies-about-its-capacity)).
 - **[CERT/CC VU#162455](https://m00dy.sh/notes/when-a-shared-rpc-server-hands-back-uncleared-heap)** (`ggml-org/llama.cpp`) - Cross-client uninitialized heap memory disclosure via `GET_TENSOR` in `ggml-rpc` (`#20832`).
+- **[CVE-2026-133498](https://www.cve.org/CVERecord?id=CVE-2026-133498)** (`mozilla-ai/llamafile`) - Declared zip entry size wraparound and out-of-bounds read in `llamafile_open_zip` ([`#1038`](https://github.com/mozilla-ai/llamafile/issues/1038), [`#1039`](https://github.com/mozilla-ai/llamafile/pull/1039), [`#1044`](https://github.com/mozilla-ai/llamafile/pull/1044)).
+- **[CVE-2026-133621](https://www.cve.org/CVERecord?id=CVE-2026-133621)** (`shader-slang/slangpy`) - Heap out-of-bounds read in vendored `tinyexr::DecodePixelData` on truncated OpenEXR scanlines ([`#1239`](https://github.com/shader-slang/slangpy/pull/1239)).
+- **[CVE-2026-133610](https://www.cve.org/CVERecord?id=CVE-2026-133610)** (`antirez/gguf-tools`) - Unchecked tensor data offset out-of-bounds read in `gguf_get_tensor` ([`#33`](https://github.com/antirez/gguf-tools/pull/33)).
+- **[CVE-2026-133612](https://www.cve.org/CVERecord?id=CVE-2026-133612)** (`SqueezeAILab/SqueezeLLM`) & **[CVE-2026-133499](https://www.cve.org/CVERecord?id=CVE-2026-133499)** (`Vahe1994/AQLM`) - Unchecked quantized index GPU out-of-bounds write in CUDA matvec ([`#77`](https://github.com/SqueezeAILab/SqueezeLLM/issues/77)) and GPU out-of-bounds read in Triton dequantization ([`#191`](https://github.com/Vahe1994/AQLM/issues/191)).
 - **[CVE-2026-115571](https://github.com/leejet/stable-diffusion.cpp/security/advisories/GHSA-cfhc-rw9j-rp26)** & **[CVE-2026-70659](https://github.com/leejet/stable-diffusion.cpp/security/advisories/GHSA-6q7q-2v9c-x8m7)** (`leejet/stable-diffusion.cpp`) - Signed-to-unsigned tensor offset wrap (`GHSA-cfhc-rw9j-rp26`, [`#1832`](https://github.com/leejet/stable-diffusion.cpp/pull/1832)) and `imatrix` loader heap out-of-bounds write (`GHSA-6q7q-2v9c-x8m7`, [`#1750`](https://github.com/leejet/stable-diffusion.cpp/pull/1750)).
 - **[CVE-2026-84286 / CERT/CC VU#369611](https://kb.cert.org/vuls/id/369611)** (`turboderp-org/exllamav3`) & **[CVE-2026-116502](https://github.com/turboderp-org/exllamav2/issues/817)** (`turboderp-org/exllamav2`) - Out-of-bounds CUDA function-pointer dispatch ([`#310`](https://github.com/turboderp-org/exllamav3/pull/310)) and quantized `g_idx` heap out-of-bounds write.
 - **[CVE-2025-66455](https://github.com/InternLM/lmdeploy/security/advisories/GHSA-2vh9-42vm-xmv2)** (`InternLM/lmdeploy`) - Pre-auth untrusted pickle deserialization in Distributed Serving (`GHSA-2vh9-42vm-xmv2`).
 - **[CVE-2026-14647](https://www.cve.org/CVERecord?id=CVE-2026-14647)** (`onnx/onnx`) - Heap out-of-bounds read in ONNX convolution shape inference ([`#8037`](https://github.com/onnx/onnx/pull/8037)).
 - **[CVE-2026-86288](https://www.cve.org/CVERecord?id=CVE-2026-86288)** (`ModelCloud/GPTQModel`) - GPU out-of-bounds read from unchecked `g_idx` in Triton dequantization ([`#2950`](https://github.com/ModelCloud/GPTQModel/pull/2950)).
 - **[CVE-2026-86289](https://www.cve.org/CVERecord?id=CVE-2026-86289)** (`ollama/ollama`) - Integer-underflow panic in GGUF v1 string parsing ([`#17062`](https://github.com/ollama/ollama/pull/17062)).
-- **[CVE-2026-75090](https://www.cve.org/CVERecord?id=CVE-2026-75090)** (`EricLBuehler/mistral.rs`) & **[CVE-2026-75093](https://www.cve.org/CVERecord?id=CVE-2026-75093)** (`sonos/tract`) - GGUF token-ID vocabulary out-of-bounds panic ([`#2282`](https://github.com/EricLBuehler/mistral.rs/pull/2282)) and raw tensor extent mismatch panic ([`#2413`](https://github.com/sonos/tract/pull/2413)).
+- **[CVE-2026-75090](https://www.cve.org/CVERecord?id=CVE-2026-75090)** (`EricLBuehler/mistral.rs`) & **[CVE-2026-75093](https://www.cve.org/CVERecord?id=CVE-2026-75093)** / **[CVE-2026-133616](https://www.cve.org/CVERecord?id=CVE-2026-133616)** (`sonos/tract`) - GGUF token-ID vocabulary out-of-bounds panic ([`#2282`](https://github.com/EricLBuehler/mistral.rs/pull/2282)), raw tensor extent mismatch panic ([`#2413`](https://github.com/sonos/tract/pull/2413)), and `Gemm` operand arity out-of-bounds panic ([`#2411`](https://github.com/sonos/tract/pull/2411)).
 - **[CVE-2026-78147](https://www.cve.org/CVERecord?id=CVE-2026-78147)**, **[CVE-2026-78148](https://www.cve.org/CVERecord?id=CVE-2026-78148)**, **[CVE-2026-86317](https://www.cve.org/CVERecord?id=CVE-2026-86317)**, **[CVE-2026-17500](https://www.cve.org/CVERecord?id=CVE-2026-17500)**, **[CVE-2026-17501](https://www.cve.org/CVERecord?id=CVE-2026-17501)** & **[CVE-2026-18581](https://www.cve.org/CVERecord?id=CVE-2026-18581)** (`ggml-org/llama.cpp`) - `ggml-rpc`, JSON-schema grammar, and template parser vulnerabilities.
 - **[CVE-2026-10298](https://www.cve.org/CVERecord?id=CVE-2026-10298)**, **[CVE-2026-17512](https://www.cve.org/CVERecord?id=CVE-2026-17512)** & **[CVE-2026-17513](https://www.cve.org/CVERecord?id=CVE-2026-17513)** (`ggml-org/whisper.cpp`) - Heap out-of-bounds read, null dereference, and reachable assertions in model/audio parsing.
